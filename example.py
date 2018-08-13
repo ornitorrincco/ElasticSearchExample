@@ -1,5 +1,24 @@
 from datetime import datetime
 from elasticsearch import Elasticsearch
+from elasticsearch import helpers
+
+es = Elasticsearch()
+
+
+def bulk(elasticSearchObject, index, type,jsonData)
+    data = [
+      {
+        "_index": str(index),
+        "_type": str(type),
+        "_id": j,
+        "_source": jsonData[j]
+      for j in range(0, len(jsonData))
+    ]
+    helpers.bulk(elasticSearchObject, data)
+
+
+
+
 es = Elasticsearch()
 es.indices.create(index='my-index', ignore=400)
 # {'index': 'my-index', 'acknowledged': True, 'shards_acknowledged': True}
